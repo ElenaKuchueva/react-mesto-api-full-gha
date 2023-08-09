@@ -36,7 +36,7 @@ function Login({OnLogin, userEmail}) {
         setIsSucces(true);
         userEmail(formValue.email);
         navigate('/', { replace: true });
-        // localStorage.setItem('jwt', data.token);
+        localStorage.setItem('jwt', data.token);
       })
       .catch(err => {
         setIsSucces(false);

@@ -49,7 +49,6 @@ function Register() {
     };
 
 
-
   return (
     <section className="login">
        <InfoToolTip
