@@ -1,0 +1,23 @@
+.nav-menu__button {
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0;
+  background-color: black;
+  color: white;
+  border: 0;
+  padding: 0;
+}
+
+.nav-menu__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media all and (max-width: 441px) {
+  .nav-menu__button {
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+}

@@ -1,0 +1,18 @@
+.element__delate {
+  background-image: url(../../../images/trash.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 22px;
+  height: 19px;
+  padding: 0;
+  border-width: 0;
+  position: absolute;
+  top: 15px;
+  right: 16px;
+}
+
+.element__delate:hover {
+  opacity: .5;
+  cursor: pointer;
+}

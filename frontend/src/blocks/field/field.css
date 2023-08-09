@@ -1,0 +1,19 @@
+.field {
+  display: block;
+  font-family: inherit;
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  outline: none;
+  border: 0;
+  border-bottom: 1px  solid rgba(0, 0, 0, .2);
+  padding: 7px 0;
+}
+
+.field:focus {
+  outline-color: rgba(0, 0, 0, .3);
+  outline-style: solid;
+  outline-width: 2px;
+}

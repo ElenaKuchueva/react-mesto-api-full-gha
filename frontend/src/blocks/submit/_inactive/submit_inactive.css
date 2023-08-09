@@ -1,0 +1,9 @@
+.submit_inactive {
+    background-color: white;
+    color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+}
+
+.submit:hover {
+    opacity: 1;
+  }

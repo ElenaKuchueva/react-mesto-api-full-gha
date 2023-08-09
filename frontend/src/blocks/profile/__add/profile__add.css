@@ -1,0 +1,22 @@
+.profile__add {
+  outline: 1px solid #fff;
+  width: 150px;
+  height: 50px;
+  background-image: url(../../../images/button.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  padding: 0;
+  border-width: 0;
+}
+
+.profile__add:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+@media all and (max-width:767px) {
+  .profile__add {
+    width: 100%;
+  }
+}
