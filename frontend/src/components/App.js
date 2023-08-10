@@ -29,33 +29,14 @@ function App() {
   const [userEmail, setUserEmail] = React.useState("");
   const navigate = useNavigate();
 
-  // React.useEffect(() => {
-  //   if (isLoggedIn) {
-  //     Promise.all([api.getInitialCards(), api.getInitialUserInfo()])
-  //       .then(([cardData, userInfoData]) => {
-  //         setCurrentUser(userInfoData);
-  //         setCards(
-  //           cardData.map((data) => ({
-  //             likes: data.likes,
-  //             name: data.name,
-  //             link: data.link,
-  //             _id: data._id,
-  //             owner: data.owner,
-  //           }))
-  //         );
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // }, [isLoggedIn]);
-
   React.useEffect(() => {
     isLoggedIn &&
       Promise.all([api.getInitialCards(), api.getInitialUserInfo()])
-        .then(([cards, res]) => {
-          setCards(cards);
-          setCurrentUser(res);
+        .then(([cardData, userInfoData]) => {
+          setCards(cardData);
+          setCurrentUser(userInfoData);
         })
-        .catch((err) => console.log(`Ошибка ${err}`));
+        .catch((err) => console.log(err));
   }, [isLoggedIn]);
 
   const checkJwt = () => {
@@ -78,26 +59,6 @@ function App() {
     }
   };
 
-  // const checkJwt = () => {
-  //   const jwt = localStorage.getItem("jwt");
-  //   if (jwt) {
-  //     mestoAuth
-  //       .getJwt(jwt)
-  //       .then((res) => {
-  //         if (res) {
-  //           setIsLoggedIn(true);
-  //           navigate("/", { replace: true });
-  //           setUserEmail(res.data.email);
-  //         }
-  //         return;
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         setIsLoggedIn(false);
-  //       });
-  //   }
-  // };
-
   React.useEffect(() => {
     checkJwt();
   }, []);
@@ -110,7 +71,6 @@ function App() {
   }
 
   function handleLikeClick(card) {
-    // const isLiked = card.likes.some((i) => i._id === currentUser._id);
     const isLiked = card.likes.some((i) => i === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
@@ -124,24 +84,15 @@ function App() {
       });
   }
 
-  // function handleCardDelete(card) {
-  //   if (card.owner._id === currentUser._id) {
-  //     api
-  //       .deleteCard(card._id)
-  //       .then(setCards((cards) => cards.filter((c) => c._id !== card._id)))
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // }
-
   function handleCardDelete(card) {
     api
     .deleteCard(card._id)
     .then(() => {
       setCards((cards) => cards.filter((c) => c._id !== card._id));
     })
-    .catch((err) => console.log(`Ошибка ${err}`));
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   function handleInitialUserInfo(userInfo) {

@@ -1,9 +1,4 @@
 class Api {
-  // constructor(url, headers) {
-  //   this.url = url;
-  //   this.headers = headers;
-  // }
-
   constructor(url) {
     this.url = url;
   }
@@ -120,12 +115,6 @@ changeLikeCardStatus(cardId, isLiked) {
 }
 
 }
-
-// const api = new Api("https://mesto.nomoreparties.co/v1/cohort-65/", {
-// const api = new Api("http://localhost:4000/", {
-//   authorization: "96facf9d-e199-4449-9f73-b185bc2a61b7",
-//   "Content-Type": "application/json",
-// });
 
 const api = new Api("http://localhost:4000/");
 
