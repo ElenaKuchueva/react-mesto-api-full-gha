@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 130.193.55.90  
+IP 130.193.55.90  
 
 Frontend https://kuchueva.nomoreparties.co;  
 
