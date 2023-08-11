@@ -68,11 +68,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
-
-const crypto = require('crypto'); // экспортируем crypto
-
-const randomString = crypto
-  .randomBytes(16) // сгенерируем случайную последовательность 16 байт (128 бит)
-  .toString('hex'); // приведём её к строке
-
-console.log(randomString);
