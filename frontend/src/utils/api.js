@@ -117,7 +117,6 @@ changeLikeCardStatus(cardId, isLiked) {
 }
 
 // const api = new Api("http://localhost:4000/");
-
-const api = new Api("https://api.kuchueva.nomoreparties.co");
+const api = new Api("https://api.kuchueva.nomoreparties.co/");
 
 export default api;

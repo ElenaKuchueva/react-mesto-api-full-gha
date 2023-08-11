@@ -1,7 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 
 const { PORT = 3000 } = process.env;
-// const { PORT = 4000 } = process.env;
 const app = express();
 const mongoose = require('mongoose');
 const helmet = require('helmet');
@@ -27,17 +27,18 @@ const allowedCors = [
 
 app.use(cors(allowedCors));
 
-// app.use(
-//   cors({
-//     origin: 'http://localhost:3000',
-//   }),
-// );
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
 app.use(helmet());
 app.use(express.json());
 
 app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signup', validationCreateUser, createUser);
 app.post('/signin', validationLogin, login);
@@ -67,3 +68,11 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
+
+const crypto = require('crypto'); // экспортируем crypto
+
+const randomString = crypto
+  .randomBytes(16) // сгенерируем случайную последовательность 16 байт (128 бит)
+  .toString('hex'); // приведём её к строке
+
+console.log(randomString);
